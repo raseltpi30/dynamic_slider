@@ -1,0 +1,46 @@
+.container {
+  height: 100vh;
+  width: 100%;
+}
+#card-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transition: opacity 1s ease, transform 1s ease;
+  z-index: 1;
+}
+
+.card.active {
+  transform: scale(1);
+  z-index: 2;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+}
+
+#progress-bar {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #ddd;
+}
+
+.progress {
+  height: 100%;
+  background-color: #3498db;
+  width: 0;
+}
