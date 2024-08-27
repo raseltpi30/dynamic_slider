@@ -1,37 +1,20 @@
 $(document).ready(function () {
-  let currentIndex = 0;
-  const cards = $("#card-slider .card");
-  const progressBar = $("#progress-bar .progress");
-  const progressTime = 3000; // 1 second for the progress bar
+  const sliderContainer = $(".suprime-slider-container");
+  const sliderItems = $(".suprime-slider-item");
+  const slideCount = sliderItems.length;
+  let currentIndex = 0; // Initialize currentIndex
 
-  function startProgressBar() {
-    progressBar.css("width", "0%").animate(
-      { width: "100%" },
-      {
-        duration: progressTime,
-        easing: "linear",
-        complete: function () {
-          showNextCard();
-        },
-      }
-    );
+  function updateActiveClass(index) {
+    sliderItems.removeClass("active");
+    sliderItems.eq(index).addClass("active");
   }
 
-  function showNextCard() {
-    // Remove the active class from the current card
-    cards.eq(currentIndex).removeClass("active");
+  sliderItems.on("click", function () {
+    currentIndex = $(this).index();
+    updateActiveClass(currentIndex);
+  });
 
-    // Increment the index to move to the next card
-    currentIndex = (currentIndex + 1) % cards.length;
-
-    // Add the active class to the next card
-    cards.eq(currentIndex).addClass("active");
-
-    // Restart the progress bar animation
-    startProgressBar();
-  }
-
-  // Initialize the first card as active and start the process
-  cards.eq(currentIndex).addClass("active");
-  startProgressBar();
+  // Additional check to ensure active class is correctly applied on page load
+  updateActiveClass(currentIndex);
 });
+
