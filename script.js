@@ -36,7 +36,7 @@ function showSlider(type) {
   } else {
     SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
     thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
-    carouselDom.classList.add("prev");
+    carouselDom.classList.add("next");
   }
   clearTimeout(runTimeOut);
   runTimeOut = setTimeout(() => {
