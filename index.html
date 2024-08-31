@@ -13,118 +13,19 @@
   <div class="carousel">
     <!-- list item -->
     <div class="list">
-      <div class="item">
-        <div class="overlay"></div>
-        <img src="assets/slider-image-1.jpg">
-        <div class="content">
-          <div class="author">LUNDEV</div>
-          <div class="title">DESIGN SLIDER</div>
-          <div class="topic">ANIMAL</div>
-          <div class="des">
-            <!-- lorem 50 -->
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat,
-            itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut
-            doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut,
-            exercitationem eum aperiam illo illum laudantium?
-          </div>
-          <div class="buttons">
-            <button>SUBSCRIBE</button>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <img src="assets/slider-image-2.jpg">
-        <div class="overlay"></div>
-        <div class="content">
-          <div class="author">LUNDEV</div>
-          <div class="title">DESIGN SLIDER</div>
-          <div class="topic">ANIMAL</div>
-          <div class="des">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat,
-            itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut
-            doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut,
-            exercitationem eum aperiam illo illum laudantium?
-          </div>
-          <div class="buttons">
-            <button>SUBSCRIBE</button>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <img src="assets/slider-image-3.jpg">
-        <div class="overlay"></div>
-        <div class="content">
-          <div class="author">LUNDEV</div>
-          <div class="title">DESIGN SLIDER</div>
-          <div class="topic">ANIMAL</div>
-          <div class="des">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat,
-            itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut
-            doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut,
-            exercitationem eum aperiam illo illum laudantium?
-          </div>
-          <div class="buttons">
-            <button>SUBSCRIBE</button>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <img src="assets/slider-image-4.jpg">
-        <div class="overlay"></div>
-        <div class="content">
-          <div class="author">LUNDEV</div>
-          <div class="title">DESIGN SLIDER</div>
-          <div class="topic">ANIMAL</div>
-          <div class="des">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat,
-            itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut
-            doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut,
-            exercitationem eum aperiam illo illum laudantium?
-          </div>
-          <div class="buttons">
-            <button>SUBSCRIBE</button>
-          </div>
-        </div>
-      </div>
+      <!-- Items will be dynamically added here -->
     </div>
     <!-- list thumbnail -->
     <div class="thumbnail">
-      <div class="item">
-        <img src="assets/slider-image-1.jpg">
-        <div class="content">
-          <div class="title">Name Slider</div>
-          <div class="description">Description</div>
-        </div>
-      </div>
-      <div class="item">
-        <img src="assets/slider-image-2.jpg">
-        <div class="content">
-          <div class="title">Name Slider</div>
-          <div class="description">Description</div>
-        </div>
-      </div>
-      <div class="item">
-        <img src="assets/slider-image-3.jpg">
-        <div class="content">
-          <div class="title">Name Slider</div>
-          <div class="description">Description</div>
-        </div>
-      </div>
-      <div class="item">
-        <img src="assets/slider-image-4.jpg">
-        <div class="content">
-          <div class="title">Name Slider</div>
-          <div class="description">Description</div>
-        </div>
-      </div>
+      <!-- Thumbnails will be dynamically added here -->
     </div>
     <!-- next prev -->
     <div class="time-line">
       <button id="prev">&lt;</button>
       <button id="next">&gt;</button>
       <div class="range-container">
-        <input type="range" class="range-input" id="sliderRange" min="1" max="4" step="1" value="1">
-        <div class="slide-number" id="slideNumber">01</div>
+        <input type="range" id="sliderRange" min="1" max="4" step="1" value="1">
+        <div class="slide-number" id="slideNumber" style="font-size: 40px;">01</div>
       </div>
     </div>
     <!-- time running -->
@@ -134,21 +35,69 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(document).ready(function () {
-      // Step 1: Get DOM elements
+      // Array of image data
+      const images = [
+        { src: 'assets/slider-image-1.jpg', title: 'DESIGN SLIDER', topic: 'ANIMAL', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?' },
+        { src: 'assets/slider-image-2.jpg', title: 'DESIGN SLIDER', topic: 'ANIMAL', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?' },
+        { src: 'assets/slider-image-3.jpg', title: 'DESIGN SLIDER', topic: 'ANIMAL', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?' },
+        { src: 'assets/slider-image-4.jpg', title: 'DESIGN SLIDER', topic: 'ANIMAL', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?' },
+        { src: 'assets/slider-image-4.jpg', title: 'DESIGN SLIDER', topic: 'ANIMAL', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?' },
+        { src: 'assets/slider-image-4.jpg', title: 'DESIGN SLIDER', topic: 'ANIMAL', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?' },
+      ];
+
+      // Function to create carousel items
+      function createCarouselItems() {
+        let $listDom = $('.list');
+        let $thumbnailDom = $('.thumbnail');
+
+        images.forEach((image, index) => {
+          let $item = $(`<div class="item">
+            <div class="overlay"></div>
+            <img src="${image.src}" alt="Image ${index + 1}">
+            <div class="content">
+              <div class="author">LUNDEV</div>
+              <div class="title">${image.title}</div>
+              <div class="topic">${image.topic}</div>
+              <div class="des">${image.description}</div>
+              <div class="buttons">
+                <button>SUBSCRIBE</button>
+              </div>
+            </div>
+          </div>`);
+
+          let $thumbnailItem = $(`<div class="item">
+            <img src="${image.src}" alt="Thumbnail ${index + 1}">
+            <div class="content">
+              <div class="title">${image.title}</div>
+              <div class="description">${image.topic}</div>
+            </div>
+          </div>`);
+
+          $listDom.append($item);
+          $thumbnailDom.append($thumbnailItem);
+        });
+
+        // Update the range input max value
+        $('#sliderRange').attr('max', images.length);
+      }
+
+      // Initialize carousel items
+      createCarouselItems();
+
+      // Carousel logic
       let $nextDom = $('#next');
       let $prevDom = $('#prev');
       let $carouselDom = $('.carousel');
       let $sliderDom = $carouselDom.find('.list');
       let $thumbnailBorderDom = $carouselDom.find('.thumbnail');
-      let $thumbnailItemsDom = $thumbnailBorderDom.find('.item');
       let $rangeInput = $('#sliderRange');
       let $slideNumber = $('#slideNumber');
       let timeRunning = 3000;
       let timeAutoNext = 7000;
       let totalSlides = $sliderDom.find('.item').length;
 
-      // Initialize
-      $thumbnailBorderDom.append($thumbnailItemsDom.first());
+      // Initialize thumbnails
+      $thumbnailBorderDom.append($thumbnailBorderDom.find('.item').first());
 
       function showSlider(type) {
         let $sliderItemsDom = $sliderDom.find('.item');

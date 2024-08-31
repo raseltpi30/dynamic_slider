@@ -132,11 +132,10 @@ a {
 	top: 82%;
 	left: 50%;
 	z-index: 300;
-	width: 300px;
-	max-width: 30%;
 	display: flex;
 	gap: 10px;
 	align-items: center;
+  width: 100%;
 	/* z-index: 300; */
 }
 .time-line button {
@@ -314,4 +313,23 @@ a {
   .carousel .list .item .content .title {
     font-size: 30px;
   }
+}
+
+.range-container{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-gap: 30px;
+}
+.range-container input{
+  width: 100%;
+  height: 2px;
+}
+
+/* Specific styles for WebKit browsers */
+
+/* Change the background color of the range track before the thumb */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, yellow 0%, yellow var(--value), #000 var(--value), #000 100%);
 }
